@@ -5,7 +5,7 @@
 /* --------------------------------------------------------------------------
    1. GOOGLE FONTS IMPORT (fallback si el preconnect no carga)
    -------------------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Stack+Sans+Notch:wght@200..700&display=swap');
 
 /* --------------------------------------------------------------------------
    TRANSICIÓN DE IDIOMA — Fade out/in de 0.4s al cambiar ES ↔ EN
@@ -108,7 +108,7 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Tipografía */
-  --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: 'Stack Sans Notch', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'DM Mono', 'Fira Code', 'Cascadia Code', monospace;
 
   --font-size-xs: 0.75rem;
@@ -279,7 +279,7 @@ button {
 /* Excepciones: elementos que tienen sus propias transiciones más rápidas
    o que no deben heredar este delay (animaciones, preloader, etc.)     */
 :where(.lang-toggle, .theme-toggle, .topbar__nav-link, .social-link,
-       .form-input, .form-textarea, .form-submit, .topbar__hamburger) {
+  .form-input, .form-textarea, .form-submit, .topbar__hamburger) {
   transition: revert;
 }
 
