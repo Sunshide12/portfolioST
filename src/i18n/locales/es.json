@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Más de mí",
+    "technologies": "Tecnologías",
+    "projects": "Proyectos",
+    "contact": "Contáctame"
+  },
+  "hero": {
+    "title": "Hola, soy Sunshide",
+    "subtitle": "Desarrollador de Software",
+    "cta": "Ver mis proyectos"
+  },
+  "about": {
+    "title": "Más de mí",
+    "subtitle": "Conoce un poco sobre mí"
+  },
+  "technologies": {
+    "title": "Tecnologías",
+    "subtitle": "Herramientas y lenguajes con los que trabajo"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Lo que he construido"
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "¿Tienes un proyecto o una idea? Hablemos.",
+    "name": "Nombre",
+    "namePlaceholder": "Tu nombre",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto o idea...",
+    "send": "Enviar mensaje",
+    "sending": "Enviando...",
+    "successTitle": "¡Mensaje enviado!",
+    "successMessage": "Gracias por escribirme. Te responderé pronto.",
+    "errorMessage": "Algo salió mal. Inténtalo de nuevo o escríbeme directamente."
+  },
+  "footer": {
+    "copyright": "© 2026 Sunshide. Todos los derechos reservados.",
+    "poweredBy": "Formulario gestionado por",
+    "builtWith": "Construido con React + Vite"
+  },
+  "language": {
+    "toggle": "Cambiar idioma",
+    "es": "Español",
+    "en": "English"
+  }
+}

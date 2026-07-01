@@ -1,0 +1,97 @@
+/* ==========================================================================
+   THEME TOGGLE — Slider Sun / Moon
+   ========================================================================== */
+
+.theme-toggle {
+  /* Reset de botón */
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+
+  /* Accesibilidad: foco visible */
+  &:focus-visible .theme-toggle__track {
+    outline: 2px solid var(--color-text);
+    outline-offset: 2px;
+  }
+}
+
+/* ── Track (el contenedor del slider) ─────────────────────────────────────── */
+.theme-toggle__track {
+  position: relative;
+  width: 52px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg-alt);
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base);
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  justify-content: space-between;
+}
+
+.theme-toggle--dark .theme-toggle__track {
+  background: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+.theme-toggle__track:hover {
+  border-color: var(--color-border-strong);
+}
+
+/* ── Iconos sol y luna ────────────────────────────────────────────────────── */
+.theme-toggle__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: color var(--transition-base), opacity var(--transition-base);
+  z-index: 1;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* En light: sol activo, luna apagada */
+.theme-toggle__icon--sun {
+  color: var(--color-text);
+}
+.theme-toggle__icon--moon {
+  opacity: 0.35;
+}
+
+/* En dark: luna activa, sol apagado */
+.theme-toggle--dark .theme-toggle__icon--sun {
+  opacity: 0.35;
+  color: var(--color-text-muted);
+}
+.theme-toggle--dark .theme-toggle__icon--moon {
+  opacity: 1;
+  color: var(--color-text);
+}
+
+/* ── Thumb (la bolita deslizante) ────────────────────────────────────────── */
+.theme-toggle__thumb {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition:
+    left var(--transition-base),
+    background var(--transition-base);
+  pointer-events: none;
+}
+
+/* Thumb se desplaza al pulsar dark */
+.theme-toggle--dark .theme-toggle__thumb {
+  left: calc(52px - 20px - 4px - 3px); /* track-width - thumb-width - padding-right - border-extra */
+}

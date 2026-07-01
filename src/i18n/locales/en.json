@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Me",
+    "technologies": "Technologies",
+    "projects": "Projects",
+    "contact": "Contact Me"
+  },
+  "hero": {
+    "title": "Hi, I'm Sunshide",
+    "subtitle": "Software Developer",
+    "cta": "View my projects"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A little about who I am"
+  },
+  "technologies": {
+    "title": "Technologies",
+    "subtitle": "Tools and languages I work with"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "What I've built"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Got a project or an idea? Let's talk.",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "email": "Email address",
+    "emailPlaceholder": "you@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project or idea...",
+    "send": "Send message",
+    "sending": "Sending...",
+    "successTitle": "Message sent!",
+    "successMessage": "Thanks for reaching out. I'll get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again or email me directly."
+  },
+  "footer": {
+    "copyright": "© 2026 Sunshide. All rights reserved.",
+    "poweredBy": "Form powered by",
+    "builtWith": "Built with React + Vite"
+  },
+  "language": {
+    "toggle": "Change language",
+    "es": "Español",
+    "en": "English"
+  }
+}

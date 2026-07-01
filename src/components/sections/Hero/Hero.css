@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SECCIONES — Estilos base compartidos por todas las secciones
+   ========================================================================== */
+
+/* Clase utilitaria base para todas las secciones */
+.section {
+  padding-block: var(--space-20);
+  min-height: 60vh;  /* Altura mínima para secciones vacías */
+}
+
+/* Secciones con fondo alternado */
+.section--alt {
+  background-color: var(--color-bg-alt);
+}
+
+/* Títulos de sección */
+.section__header {
+  margin-bottom: var(--space-12);
+}
+
+.section__label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-3);
+}
+
+.section__title {
+  font-size: clamp(var(--font-size-3xl), 5vw, var(--font-size-5xl));
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  line-height: var(--line-height-tight);
+}
+
+.section__subtitle {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+  max-width: 54ch;
+}
+
+/* --------------------------------------------------------------------------
+   HERO específico
+   -------------------------------------------------------------------------- */
+.hero {
+  min-height: calc(100vh - var(--topbar-height));
+  display: flex;
+  align-items: center;
+}
+
+.hero__content {
+  width: 100%;
+}

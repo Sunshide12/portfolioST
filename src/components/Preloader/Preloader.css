@@ -1,0 +1,30 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preloader__content {
+  display: flex;
+  align-items: baseline;
+  color: var(--color-text);
+}
+
+.preloader__counter {
+  font-size: clamp(var(--font-size-5xl), 10vw, 8rem);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.preloader__percent {
+  font-size: clamp(var(--font-size-2xl), 4vw, 3rem);
+  font-weight: var(--font-weight-medium);
+  margin-left: var(--space-2);
+  color: var(--color-text-secondary);
+}

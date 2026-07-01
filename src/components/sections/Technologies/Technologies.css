@@ -1,0 +1,8 @@
+/* Technologies section */
+
+.tech__grid {
+  /* Grid auto-fill para badges de tecnologías */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: var(--space-4);
+}

@@ -1,0 +1,300 @@
+/* ==========================================================================
+   FOOTER
+   Usa variables CSS del design system para responder al dark/light mode.
+   ========================================================================== */
+
+/* Las siguientes variables locales se calculan a partir de los tokens
+   globales, y se invierten automáticamente cuando :root[data-theme="dark"]
+   cambia sus valores. No hay rgba() hardcodeados. */
+
+.footer {
+  /* En light: fondo = --color-text (#181816), texto = --color-text-inverse (#F7F6F3)
+     En dark:  fondo = --color-bg-alt (#222220), texto = --color-text (#F7F6F3)
+     → Usamos un token "invertido" que en ambos modos da un fondo oscuro con texto claro */
+  background: var(--color-text);
+  color: var(--color-text-inverse);
+  border-top: 1px solid var(--color-border);
+}
+
+/* En dark mode el footer "invierte" su lógica:
+   --color-text es ahora #F7F6F3, así que lo usaríamos como fondo claro.
+   Queremos que el footer SIEMPRE sea un bloque oscuro, así que lo fijamos. */
+:root[data-theme="dark"] .footer {
+  background: #111110;
+  color: #F7F6F3;
+  border-top-color: #2E2E2C;
+}
+
+/* --------------------------------------------------------------------------
+   INNER — Dos columnas: info | formulario
+   -------------------------------------------------------------------------- */
+.footer__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  padding-block: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr 1.6fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   INFO COLUMN
+   -------------------------------------------------------------------------- */
+.footer__brand {
+  margin-bottom: var(--space-8);
+}
+
+.footer__name {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: -0.03em;
+  color: inherit;
+  margin-bottom: var(--space-3);
+}
+
+.footer__tagline {
+  font-size: var(--font-size-sm);
+  color: rgba(247, 246, 243, 0.55);
+  line-height: var(--line-height-relaxed);
+  max-width: 32ch;
+}
+
+/* Redes sociales */
+.footer__social {
+  display: flex;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid rgba(247, 246, 243, 0.15);
+  color: rgba(247, 246, 243, 0.65);
+  background: transparent;
+  text-decoration: none;
+  transition:
+    color var(--transition-base),
+    border-color var(--transition-base),
+    background var(--transition-base),
+    transform var(--transition-spring);
+}
+
+.social-link:hover {
+  color: #F7F6F3;
+  border-color: rgba(247, 246, 243, 0.5);
+  background: rgba(247, 246, 243, 0.1);
+  transform: translateY(-2px);
+}
+
+.footer__built {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: rgba(247, 246, 243, 0.35);
+  letter-spacing: 0.06em;
+}
+
+/* --------------------------------------------------------------------------
+   CONTACT FORM COLUMN
+   -------------------------------------------------------------------------- */
+.footer__contact-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: inherit;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-8);
+}
+
+/* Formulario */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: rgba(247, 246, 243, 0.75);
+  letter-spacing: 0.02em;
+}
+
+.form-required {
+  color: rgba(247, 246, 243, 0.45);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  color: #F7F6F3;
+  background: rgba(247, 246, 243, 0.06);
+  border: 1.5px solid rgba(247, 246, 243, 0.15);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+  resize: none;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(247, 246, 243, 0.3);
+}
+
+.form-input:hover,
+.form-textarea:hover {
+  border-color: rgba(247, 246, 243, 0.3);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: rgba(247, 246, 243, 0.6);
+  background: rgba(247, 246, 243, 0.1);
+  box-shadow: 0 0 0 3px rgba(247, 246, 243, 0.08);
+}
+
+.form-textarea {
+  min-height: 130px;
+  line-height: var(--line-height-relaxed);
+}
+
+.form-error {
+  font-size: var(--font-size-xs);
+  color: #FF7B7B;
+  margin-top: var(--space-1);
+}
+
+.form-error--general {
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 123, 123, 0.1);
+  border: 1px solid rgba(255, 123, 123, 0.3);
+  border-radius: var(--radius-md);
+}
+
+/* Botón enviar */
+.form-submit {
+  align-self: flex-start;
+  padding: var(--space-3) var(--space-8);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: #181816;
+  background: #F7F6F3;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition:
+    background var(--transition-fast),
+    opacity var(--transition-fast),
+    transform var(--transition-spring);
+}
+
+.form-submit:hover:not(:disabled) {
+  background: rgba(247, 246, 243, 0.9);
+  transform: translateY(-1px);
+}
+
+.form-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.form-submit:disabled,
+.form-submit--loading {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   SUCCESS STATE
+   -------------------------------------------------------------------------- */
+.form-success {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-8);
+  background: rgba(247, 246, 243, 0.06);
+  border: 1.5px solid rgba(247, 246, 243, 0.15);
+  border-radius: var(--radius-lg);
+  animation: fadeInUp var(--transition-slow) both;
+}
+
+.form-success__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: rgba(247, 246, 243, 0.12);
+  font-size: var(--font-size-lg);
+  color: #F7F6F3;
+  border: 1.5px solid rgba(247, 246, 243, 0.25);
+}
+
+.form-success__title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: #F7F6F3;
+}
+
+.form-success__message {
+  font-size: var(--font-size-sm);
+  color: rgba(247, 246, 243, 0.65);
+  line-height: var(--line-height-relaxed);
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM BAR
+   -------------------------------------------------------------------------- */
+.footer__bottom {
+  border-top: 1px solid rgba(247, 246, 243, 0.1);
+}
+
+.footer__bottom-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+}
+
+.footer__copyright {
+  font-size: var(--font-size-xs);
+  color: rgba(247, 246, 243, 0.35);
+}
+
+.footer__powered {
+  font-size: var(--font-size-xs);
+  color: rgba(247, 246, 243, 0.35);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer__powered:hover {
+  color: rgba(247, 246, 243, 0.65);
+}

@@ -1,0 +1,15 @@
+/* AboutMe section */
+
+.about__content {
+  /* Grid para foto + bio cuando lo rellenes */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .about__content {
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+  }
+}
