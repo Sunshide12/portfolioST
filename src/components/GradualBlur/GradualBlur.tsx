@@ -77,7 +77,7 @@ const CURVE_FUNCTIONS: Record<Curve, (p: number) => number> = {
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 const mergeConfigs = (...configs: Partial<GradualBlurConfig>[]): GradualBlurConfig =>
-  configs.reduce((acc, c) => ({ ...acc, ...c }), {} as GradualBlurConfig);
+  configs.reduce((acc, c) => ({ ...acc, ...c }), {} as GradualBlurConfig) as GradualBlurConfig;
 
 const getGradientDirection = (position: Position): string =>
   ({ top: 'to top', bottom: 'to bottom', left: 'to left', right: 'to right' })[position] ?? 'to bottom';
