@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { useScrolled } from '../../hooks/useScrolled';
+import { useCurtains } from '../Curtains/CurtainsContext';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { MobileMenu } from './MobileMenu';
@@ -24,15 +25,19 @@ export function Topbar() {
   const { t } = useTranslation();
   const scrolled = useScrolled(10);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { triggerTransition } = useCurtains();
 
   const handleNavClick = (href: string) => {
     // Cierra el menú móvil al navegar
     setMobileOpen(false);
-    // Scroll suave al elemento destino
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    
+    // Activa la transición
+    triggerTransition(() => {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'instant' });
+      }
+    });
   };
 
   return (

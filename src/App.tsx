@@ -6,6 +6,7 @@ import { AboutMe } from './components/sections/AboutMe/AboutMe';
 import { Technologies } from './components/sections/Technologies/Technologies';
 import { Projects } from './components/sections/Projects/Projects';
 import { Preloader } from './components/Preloader/Preloader';
+import { CurtainsProvider } from './components/Curtains/CurtainsContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ function App() {
   }, [loading]);
 
   return (
-    <>
+    <CurtainsProvider>
       {/* Preloader — visible solo en la primera carga */}
       {loading && <Preloader onComplete={() => setLoading(false)} />}
 
@@ -54,7 +55,7 @@ function App() {
           <Projects />
         </Layout>
       </motion.div>
-    </>
+    </CurtainsProvider>
   );
 }
 
