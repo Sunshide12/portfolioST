@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { TranslatedText } from '../../TranslatedText/TranslatedText';
 import './AboutMe.css';
 
 /**
@@ -17,8 +18,8 @@ export function AboutMe() {
         {/* Encabezado de sección */}
         <header className="section__header">
           <span className="section__label">02</span>
-          <h2 className="section__title">{t('about.title')}</h2>
-          <p className="section__subtitle">{t('about.subtitle')}</p>
+          <h2 className="section__title"><TranslatedText i18nKey="about.title" animateOn="view" speed={30} /></h2>
+          <p className="section__subtitle"><TranslatedText i18nKey="about.subtitle" animateOn="view" speed={20} /></p>
         </header>
 
         {/* ── TU CONTENIDO AQUÍ ── */}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { useScrolled } from '../../hooks/useScrolled';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
@@ -59,7 +60,7 @@ export function Topbar() {
                     className="topbar__nav-link"
                     onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
                   >
-                    {t(link.key)}
+                    <TranslatedText i18nKey={link.key} animateOn="view" speed={30} />
                   </a>
                 </li>
               ))}

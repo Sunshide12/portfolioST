@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useForm, ValidationError } from '@formspree/react';
+import { TranslatedText } from '../TranslatedText/TranslatedText';
 import './Footer.css';
 
 /* ============================================================
@@ -47,7 +48,7 @@ export function Footer() {
           <div className="footer__brand">
             <span className="footer__name">Sunshide.</span>
             <p className="footer__tagline">
-              {t('contact.subtitle')}
+              <TranslatedText i18nKey="contact.subtitle" animateOn="view" speed={30} />
             </p>
           </div>
 
@@ -84,26 +85,26 @@ export function Footer() {
           </nav>
 
           {/* Built with */}
-          <p className="footer__built">{t('footer.builtWith')}</p>
+          <p className="footer__built"><TranslatedText i18nKey="footer.builtWith" animateOn="view" speed={30} /></p>
         </div>
 
         {/* ── COLUMNA DERECHA: Formulario de Contacto ── */}
         <div className="footer__contact">
-          <h2 className="footer__contact-title">{t('contact.title')}</h2>
+          <h2 className="footer__contact-title"><TranslatedText i18nKey="contact.title" animateOn="view" speed={30} /></h2>
 
           {state.succeeded ? (
             /* Estado de éxito */
             <div className="form-success" role="alert">
               <div className="form-success__icon" aria-hidden="true">✓</div>
-              <h3 className="form-success__title">{t('contact.successTitle')}</h3>
-              <p className="form-success__message">{t('contact.successMessage')}</p>
+              <h3 className="form-success__title"><TranslatedText i18nKey="contact.successTitle" animateOn="view" speed={30} /></h3>
+              <p className="form-success__message"><TranslatedText i18nKey="contact.successMessage" animateOn="view" speed={30} /></p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-form" noValidate>
               {/* Campo: Nombre */}
               <div className="form-group">
                 <label htmlFor="contact-name" className="form-label">
-                  {t('contact.name')}
+                  <TranslatedText i18nKey="contact.name" animateOn="view" speed={30} />
                 </label>
                 <input
                   id="contact-name"
@@ -124,7 +125,7 @@ export function Footer() {
               {/* Campo: Email */}
               <div className="form-group">
                 <label htmlFor="contact-email" className="form-label">
-                  {t('contact.email')}
+                  <TranslatedText i18nKey="contact.email" animateOn="view" speed={30} />
                   <span className="form-required" aria-hidden="true"> *</span>
                 </label>
                 <input
@@ -147,7 +148,7 @@ export function Footer() {
               {/* Campo: Mensaje */}
               <div className="form-group">
                 <label htmlFor="contact-message" className="form-label">
-                  {t('contact.message')}
+                  <TranslatedText i18nKey="contact.message" animateOn="view" speed={30} />
                 </label>
                 <textarea
                   id="contact-message"
@@ -177,7 +178,7 @@ export function Footer() {
                 disabled={state.submitting}
                 className={`form-submit${state.submitting ? ' form-submit--loading' : ''}`}
               >
-                {state.submitting ? t('contact.sending') : t('contact.send')}
+                {state.submitting ? <TranslatedText i18nKey="contact.sending" animateOn="view" speed={30} /> : <TranslatedText i18nKey="contact.send" animateOn="view" speed={30} />}
               </button>
             </form>
           )}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import './MobileMenu.css';
 
@@ -83,7 +84,7 @@ export function MobileMenu({ id, isOpen, links, onClose, onNavigate }: MobileMen
                   <span className="mobile-menu__index">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  {t(link.key)}
+                  <TranslatedText i18nKey={link.key} animateOn="view" speed={30} />
                 </a>
               </li>
             ))}
