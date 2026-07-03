@@ -1,8 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import './LanguageToggle.css';
 
-const FADE_DURATION = 200; // ms — mitad del ciclo total de 0.4s
-
 export function LanguageToggle() {
   const { i18n } = useTranslation();
 
