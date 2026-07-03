@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Galaxy from '../../Galaxy/Galaxy';
+import { TranslatedText } from '../../TranslatedText/TranslatedText';
 import './Hero.css';
 
 /**
@@ -25,10 +26,8 @@ export function Hero() {
       </div>
       <div className="container hero__content" style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>
         <div style={{ pointerEvents: 'auto' }}>
-          <h1 className="section__title">Bienvenidos a mi Portafolio</h1>
-          <p className="section__subtitle">
-            Explora mis proyectos y descubre lo que puedo construir. Transformando ideas en realidad a través del código y diseño moderno.
-          </p>
+          <h1 className="section__title"><TranslatedText i18nKey="hero.title" animateOn="view" speed={30} /></h1>
+          <p className="section__subtitle"><TranslatedText i18nKey="hero.subtitle" animateOn="view" speed={20} /></p>
         </div>
       </div>
     </section>
