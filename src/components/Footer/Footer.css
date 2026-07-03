@@ -163,6 +163,31 @@
   color: rgba(247, 246, 243, 0.3);
 }
 
+/* Fake Placeholders */
+.form-input-wrapper {
+  position: relative;
+  display: block;
+}
+
+.fake-placeholder {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-4);
+  pointer-events: none;
+  color: rgba(247, 246, 243, 0.3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+}
+
+.form-input:focus + .fake-placeholder,
+.form-input:not(:placeholder-shown) + .fake-placeholder,
+.form-textarea:focus + .fake-placeholder,
+.form-textarea:not(:placeholder-shown) + .fake-placeholder {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .form-input:hover,
 .form-textarea:hover {
   border-color: rgba(247, 246, 243, 0.3);

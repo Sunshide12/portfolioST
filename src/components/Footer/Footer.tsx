@@ -106,14 +106,19 @@ export function Footer() {
                 <label htmlFor="contact-name" className="form-label">
                   <TranslatedText i18nKey="contact.name" animateOn="view" speed={30} />
                 </label>
-                <input
-                  id="contact-name"
-                  type="text"
-                  name="name"
-                  className="form-input"
-                  placeholder={t('contact.namePlaceholder')}
-                  autoComplete="name"
-                />
+                <div className="form-input-wrapper">
+                  <input
+                    id="contact-name"
+                    type="text"
+                    name="name"
+                    className="form-input"
+                    placeholder=" "
+                    autoComplete="name"
+                  />
+                  <div className="fake-placeholder">
+                    <TranslatedText i18nKey="contact.namePlaceholder" animateOn="view" speed={30} />
+                  </div>
+                </div>
                 <ValidationError
                   prefix="Name"
                   field="name"
@@ -128,15 +133,20 @@ export function Footer() {
                   <TranslatedText i18nKey="contact.email" animateOn="view" speed={30} />
                   <span className="form-required" aria-hidden="true"> *</span>
                 </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  name="email"
-                  required
-                  className="form-input"
-                  placeholder={t('contact.emailPlaceholder')}
-                  autoComplete="email"
-                />
+                <div className="form-input-wrapper">
+                  <input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    required
+                    className="form-input"
+                    placeholder=" "
+                    autoComplete="email"
+                  />
+                  <div className="fake-placeholder">
+                    <TranslatedText i18nKey="contact.emailPlaceholder" animateOn="view" speed={30} />
+                  </div>
+                </div>
                 <ValidationError
                   prefix="Email"
                   field="email"
@@ -150,13 +160,18 @@ export function Footer() {
                 <label htmlFor="contact-message" className="form-label">
                   <TranslatedText i18nKey="contact.message" animateOn="view" speed={30} />
                 </label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows={5}
-                  className="form-textarea"
-                  placeholder={t('contact.messagePlaceholder')}
-                />
+                <div className="form-input-wrapper">
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows={5}
+                    className="form-textarea"
+                    placeholder=" "
+                  />
+                  <div className="fake-placeholder">
+                    <TranslatedText i18nKey="contact.messagePlaceholder" animateOn="view" speed={30} />
+                  </div>
+                </div>
                 <ValidationError
                   prefix="Message"
                   field="message"
