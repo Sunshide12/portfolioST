@@ -10,26 +10,11 @@ export function LanguageToggle() {
 
   const toggleLanguage = () => {
     const next = isES ? 'en' : 'es';
-    const root = document.getElementById('root');
 
-    if (!root) {
-      // Fallback sin animación
-      i18n.changeLanguage(next);
-      document.documentElement.lang = next;
-      return;
-    }
+    // Cambiar idioma
+    i18n.changeLanguage(next);
+    document.documentElement.lang = next;
 
-    // 1. Fade OUT — añadir clase que reduce opacidad a 0 en 0.5s
-    root.classList.add('lang-fade-out');
-
-    setTimeout(() => {
-      // 2. Cambiar idioma cuando la pantalla ya está oscura
-      i18n.changeLanguage(next);
-      document.documentElement.lang = next;
-
-      // 3. Fade IN — quitar clase para que vuelva a opacity 1 en 0.5s
-      root.classList.remove('lang-fade-out');
-    }, FADE_DURATION);
   };
 
   return (
