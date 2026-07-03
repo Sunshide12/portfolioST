@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Canvas, extend, useFrame } from '@react-three/fiber';
+import { Canvas, extend, useFrame, useThree } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
@@ -71,6 +71,7 @@ export default function Lanyard({
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
+        style={{ touchAction: 'auto' }}
       >
         <ambientLight intensity={Math.PI} />
         <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
@@ -134,6 +135,9 @@ function Band({
   const j2 = useRef<any>(null);
   const j3 = useRef<any>(null);
   const card = useRef<any>(null);
+  const { gl, camera } = useThree();
+  const raycaster = useMemo(() => new THREE.Raycaster(), []);
+  const mouse = useMemo(() => new THREE.Vector2(), []);
   const vec = new THREE.Vector3(),
     ang = new THREE.Vector3(),
     rot = new THREE.Vector3(),
@@ -210,6 +214,25 @@ function Band({
     }
   }, [hovered, dragged]);
 
+  useEffect(() => {
+    const canvas = gl.domElement;
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = ((e.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((e.touches[0].clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(gl.scene.children, true);
+        const hitCard = intersects.some((hit: any) => hit.object.userData?.isCard);
+        if (hitCard) {
+          e.preventDefault(); // Prevents scrolling when dragging the card on mobile
+        }
+      }
+    };
+    canvas.addEventListener('touchstart', onTouchStart, { passive: false });
+    return () => canvas.removeEventListener('touchstart', onTouchStart);
+  }, [gl, camera, raycaster, mouse]);
+
   useFrame((state, delta) => {
     if (dragged) {
       vec.set(state.pointer.x, state.pointer.y, 0.5).unproject(state.camera);
@@ -261,13 +284,20 @@ function Band({
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={(e: any) => (e.target.releasePointerCapture(e.pointerId), drag(false))}
-            onPointerDown={(e: any) => (
-              e.target.setPointerCapture(e.pointerId),
-              drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
-            )}
+            onPointerUp={(e: any) => {
+              if (e.target.releasePointerCapture) {
+                try { e.target.releasePointerCapture(e.pointerId); } catch (err) {}
+              }
+              drag(false);
+            }}
+            onPointerDown={(e: any) => {
+              if (e.target.setPointerCapture) {
+                try { e.target.setPointerCapture(e.pointerId); } catch (err) {}
+              }
+              drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
+            }}
           >
-            <mesh geometry={nodes.card.geometry}>
+            <mesh geometry={nodes.card.geometry} userData={{ isCard: true }}>
               <meshPhysicalMaterial
                 map={cardMap}
                 map-anisotropy={16}
@@ -277,8 +307,8 @@ function Band({
                 metalness={0.8}
               />
             </mesh>
-            <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} />
-            <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            <mesh geometry={nodes.clip.geometry} material={materials.metal} material-roughness={0.3} userData={{ isCard: true }} />
+            <mesh geometry={nodes.clamp.geometry} material={materials.metal} userData={{ isCard: true }} />
           </group>
         </RigidBody>
       </group>
