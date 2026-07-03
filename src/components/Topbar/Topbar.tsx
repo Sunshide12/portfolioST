@@ -4,7 +4,7 @@ import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useCurtains } from '../Curtains/CurtainsContext';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
-import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
+// ThemeToggle is not used here
 import StaggeredMenu from '../StaggeredMenu/StaggeredMenu';
 import './Topbar.css';
 

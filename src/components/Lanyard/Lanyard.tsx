@@ -15,6 +15,7 @@ declare global {
   }
 }
 
+// @ts-ignore
 import cardGLB from './card.glb';
 import lanyard from './lanyard.png';
 
@@ -313,7 +314,9 @@ function Band({
         </RigidBody>
       </group>
       <mesh ref={band}>
+        {/* @ts-ignore */}
         <meshLineGeometry />
+        {/* @ts-ignore */}
         <meshLineMaterial
           color="white"
           depthTest={false}

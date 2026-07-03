@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+// @ts-ignore
 import DecryptedText from '../DecryptedText/DecryptedText';
 
 interface TranslatedTextProps {

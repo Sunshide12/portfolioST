@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+// @ts-ignore
 import Galaxy from '../../Galaxy/Galaxy';
 import { TranslatedText } from '../../TranslatedText/TranslatedText';
 import './Hero.css';

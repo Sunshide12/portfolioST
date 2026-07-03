@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useTranslation } from 'react-i18next';
+// useTranslation removed
 import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import './MobileMenu.css';
@@ -13,7 +13,7 @@ interface MobileMenuProps {
 }
 
 export function MobileMenu({ id, isOpen, links, onClose, onNavigate }: MobileMenuProps) {
-  const { t } = useTranslation();
+  // t is unused
   const menuRef = useRef<HTMLDivElement>(null);
 
   // Bloquear scroll del body cuando el menú está abierto
