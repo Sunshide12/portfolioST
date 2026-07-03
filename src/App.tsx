@@ -25,9 +25,11 @@ function App() {
   useEffect(() => {
     if (loading) {
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
       window.scrollTo(0, 0);
     } else {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     }
   }, [loading]);
 
