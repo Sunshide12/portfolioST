@@ -68,7 +68,7 @@ export function Topbar() {
 
           {/* Controles derechos: tema + idioma + hamburguesa */}
           <div className="topbar__controls">
-            <ThemeToggle />
+
             <LanguageToggle />
 
             {/* Botón hamburguesa — solo visible en móvil */}
