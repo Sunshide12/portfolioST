@@ -39,7 +39,7 @@ export function Technologies() {
         </header>
 
         {/* ── TU CONTENIDO AQUÍ ── */}
-        <div className="tech__loop-container" style={{ margin: 'var(--space-10) 0 var(--space-20) 0' }}>
+        <div className="tech__loop-container" style={{ margin: 'var(--space-10) 0 var(--space-20) 0', position: 'relative', overflow: 'hidden' }}>
           <LogoLoop
             logos={techLogos}
             speed={60}
