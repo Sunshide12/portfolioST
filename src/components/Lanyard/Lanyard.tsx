@@ -135,7 +135,7 @@ function Band({
   const j2 = useRef<any>(null);
   const j3 = useRef<any>(null);
   const card = useRef<any>(null);
-  const { gl, camera } = useThree();
+  const { gl, camera, scene } = useThree();
   const raycaster = useMemo(() => new THREE.Raycaster(), []);
   const mouse = useMemo(() => new THREE.Vector2(), []);
   const vec = new THREE.Vector3(),
@@ -222,7 +222,7 @@ function Band({
         mouse.x = ((e.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
         mouse.y = -((e.touches[0].clientY - rect.top) / rect.height) * 2 + 1;
         raycaster.setFromCamera(mouse, camera);
-        const intersects = raycaster.intersectObjects(gl.scene.children, true);
+        const intersects = raycaster.intersectObjects(scene.children, true);
         const hitCard = intersects.some((hit: any) => hit.object.userData?.isCard);
         if (hitCard) {
           e.preventDefault(); // Prevents scrolling when dragging the card on mobile

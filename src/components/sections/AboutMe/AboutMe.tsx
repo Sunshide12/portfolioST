@@ -1,3 +1,4 @@
+import { useState, useEffect, Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TranslatedText } from '../../TranslatedText/TranslatedText';
 import './AboutMe.css';
@@ -9,21 +10,34 @@ import './AboutMe.css';
  * Añade tu foto, bio, experiencia, etc. dentro de .about__content
  * ─────────────────────────────────────────────────────────────────────────
  */
-import Lanyard from '../../Lanyard/Lanyard';
+const Lanyard = lazy(() => import('../../Lanyard/Lanyard'));
 
 export function AboutMe() {
   const { t } = useTranslation();
+  const [show3D, setShow3D] = useState(false);
+
+  useEffect(() => {
+    // Retrasar la carga del componente 3D para que no interrumpa la animación de entrada
+    const timer = setTimeout(() => {
+      setShow3D(true);
+    }, 800); // 800ms es suficiente para que termine la transición de navegación
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="about" className="about section section--alt" aria-label={t('nav.about')}>
       <div className="about__scroll-container">
         <div className="about__sticky-content">
-          <Lanyard
-            position={[0, 0, 20]}
-            gravity={[0, -40, 0]}
-            frontImage="/BackImage.jpeg"
-            backImage="/SLogo.jpeg"
-          />
+          {show3D && (
+            <Suspense fallback={null}>
+              <Lanyard
+                position={[0, 0, 20]}
+                gravity={[0, -40, 0]}
+                frontImage="/BackImage.jpeg"
+                backImage="/SLogo.jpeg"
+              />
+            </Suspense>
+          )}
 
           <div className="about__overlay">
             <div className="container">

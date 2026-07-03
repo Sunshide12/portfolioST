@@ -329,6 +329,7 @@ export const StaggeredMenu = ({
       animateColor(false);
       animateText(false);
       document.body.style.overflow = '';
+      (document.activeElement as HTMLElement)?.blur();
     }
   }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
 
