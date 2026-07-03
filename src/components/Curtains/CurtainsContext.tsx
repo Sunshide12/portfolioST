@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
-import { motion, AnimatePresence, Variants } from 'motion/react';
+import React, { createContext, useContext, useState, type ReactNode, useCallback } from 'react';
+import { motion, AnimatePresence, type Variants } from 'motion/react';
 
 type CurtainOptions = {
   duration?: number;
