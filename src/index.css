@@ -189,6 +189,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   tab-size: 4;
+  overflow-x: clip;
 }
 
 body {
@@ -204,6 +205,7 @@ body {
   min-height: 100vh;
   /* Transición suave al cambiar tema light ↔ dark */
   transition: background-color var(--transition-base), color var(--transition-base);
+  overflow-x: clip;
 }
 
 img,

@@ -1,11 +1,11 @@
-import { useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { TranslatedText } from '../TranslatedText/TranslatedText';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useCurtains } from '../Curtains/CurtainsContext';
 import { LanguageToggle } from '../LanguageToggle/LanguageToggle';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
-import { MobileMenu } from './MobileMenu';
+import StaggeredMenu from '../StaggeredMenu/StaggeredMenu';
 import './Topbar.css';
 
 interface NavLink {
@@ -24,13 +24,9 @@ const NAV_LINKS: NavLink[] = [
 export function Topbar() {
   const { t } = useTranslation();
   const scrolled = useScrolled(10);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const { triggerTransition } = useCurtains();
 
   const handleNavClick = (href: string) => {
-    // Cierra el menú móvil al navegar
-    setMobileOpen(false);
-    
     // Activa la transición y cambia de sección
     triggerTransition(() => {
       window.location.hash = href;
@@ -70,36 +66,23 @@ export function Topbar() {
             </ul>
           </nav>
 
-          {/* Controles derechos: tema + idioma + hamburguesa */}
+          {/* Controles derechos: tema + idioma + menú móvil */}
           <div className="topbar__controls">
 
             <LanguageToggle />
 
-            {/* Botón hamburguesa — solo visible en móvil */}
-            <button
-              className={`topbar__hamburger${mobileOpen ? ' topbar__hamburger--open' : ''}`}
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-              aria-expanded={mobileOpen}
-              aria-controls="mobile-menu"
-            >
-              <span className="hamburger__bar" />
-              <span className="hamburger__bar" />
-              <span className="hamburger__bar" />
-            </button>
+            {/* Menú móvil */}
+            <div className="topbar__mobile-menu-wrapper">
+              <StaggeredMenu 
+                items={NAV_LINKS.map(link => ({ label: t(link.key), link: link.href, ariaLabel: t(link.key) }))}
+                onNavigate={handleNavClick}
+                displaySocials={false}
+              />
+            </div>
           </div>
 
         </div>
       </header>
-
-      {/* Menú móvil */}
-      <MobileMenu
-        id="mobile-menu"
-        isOpen={mobileOpen}
-        links={NAV_LINKS}
-        onClose={() => setMobileOpen(false)}
-        onNavigate={handleNavClick}
-      />
     </>
   );
 }

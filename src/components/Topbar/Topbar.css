@@ -126,49 +126,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   HAMBURGUESA
+   MENÚ MÓVIL (STAGGERED MENU)
    -------------------------------------------------------------------------- */
-.topbar__hamburger {
+.topbar__mobile-menu-wrapper {
   display: none; /* oculto en desktop */
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  padding: var(--space-2);
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--color-border);
-  background: transparent;
-  cursor: pointer;
-  transition: border-color var(--transition-fast), background var(--transition-fast);
-}
-
-.topbar__hamburger:hover {
-  border-color: var(--color-text);
-  background: var(--color-surface-hover);
-}
-
-.hamburger__bar {
-  display: block;
-  width: 18px;
-  height: 1.5px;
-  background: var(--color-text);
-  border-radius: var(--radius-full);
-  transition: transform var(--transition-base), opacity var(--transition-base);
-  transform-origin: center;
-}
-
-/* Animación cruz al abrir */
-.topbar__hamburger--open .hamburger__bar:nth-child(1) {
-  transform: translateY(6.5px) rotate(45deg);
-}
-.topbar__hamburger--open .hamburger__bar:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.topbar__hamburger--open .hamburger__bar:nth-child(3) {
-  transform: translateY(-6.5px) rotate(-45deg);
 }
 
 /* --------------------------------------------------------------------------
@@ -180,8 +141,9 @@
     display: none;
   }
 
-  /* Mostrar hamburguesa */
-  .topbar__hamburger {
+  /* Mostrar toggle menú móvil */
+  .topbar__mobile-menu-wrapper {
     display: flex;
+    align-items: center;
   }
 }
