@@ -9,6 +9,22 @@ import './Technologies.css';
  * Añade iconos, badges o tarjetas dentro de .tech__grid
  * ─────────────────────────────────────────────────────────────────────────
  */
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiHtml5, SiCss, SiVite, SiGit, SiFigma } from 'react-icons/si';
+import LogoLoop from '../../LogoLoop/LogoLoop';
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
+  { node: <SiHtml5 />, title: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5" },
+  { node: <SiCss />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
+  { node: <SiVite />, title: "Vite", href: "https://vitejs.dev" },
+  { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
+  { node: <SiFigma />, title: "Figma", href: "https://www.figma.com" },
+];
+
 export function Technologies() {
   const { t } = useTranslation();
 
@@ -23,6 +39,21 @@ export function Technologies() {
         </header>
 
         {/* ── TU CONTENIDO AQUÍ ── */}
+        <div className="tech__loop-container" style={{ margin: 'var(--space-10) 0 var(--space-20) 0' }}>
+          <LogoLoop
+            logos={techLogos}
+            speed={60}
+            direction="left"
+            logoHeight={48}
+            gap={60}
+            hoverSpeed={10}
+            scaleOnHover
+            fadeOut
+            fadeOutColor="var(--color-bg)"
+            ariaLabel="Technology partners"
+          />
+        </div>
+
         <div className="tech__grid">
           {/* Ejemplo de estructura para cuando lo rellenes:
               - Badge / chip por cada tecnología

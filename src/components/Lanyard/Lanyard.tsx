@@ -286,13 +286,13 @@ function Band({
             onPointerOut={() => hover(false)}
             onPointerUp={(e: any) => {
               if (e.target.releasePointerCapture) {
-                try { e.target.releasePointerCapture(e.pointerId); } catch (err) {}
+                try { e.target.releasePointerCapture(e.pointerId); } catch (err) { }
               }
               drag(false);
             }}
             onPointerDown={(e: any) => {
               if (e.target.setPointerCapture) {
-                try { e.target.setPointerCapture(e.pointerId); } catch (err) {}
+                try { e.target.setPointerCapture(e.pointerId); } catch (err) { }
               }
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
             }}
