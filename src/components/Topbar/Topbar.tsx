@@ -31,12 +31,10 @@ export function Topbar() {
     // Cierra el menú móvil al navegar
     setMobileOpen(false);
     
-    // Activa la transición
+    // Activa la transición y cambia de sección
     triggerTransition(() => {
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'instant' });
-      }
+      window.location.hash = href;
+      window.scrollTo(0, 0);
     });
   };
 

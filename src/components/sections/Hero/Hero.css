@@ -5,7 +5,10 @@
 /* Clase utilitaria base para todas las secciones */
 .section {
   padding-block: var(--space-20);
-  min-height: 60vh;  /* Altura mínima para secciones vacías */
+  min-height: calc(100vh - var(--topbar-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Secciones con fondo alternado */

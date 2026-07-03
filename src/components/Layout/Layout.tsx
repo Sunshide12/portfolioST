@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import { Topbar } from '../Topbar/Topbar';
-import { Footer } from '../Footer/Footer';
 import './Layout.css';
 
 interface LayoutProps {
@@ -16,8 +15,6 @@ export function Layout({ children }: LayoutProps) {
       <main className="layout__main" id="main-content" role="main">
         {children}
       </main>
-
-      <Footer />
     </div>
   );
 }

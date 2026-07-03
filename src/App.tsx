@@ -5,11 +5,21 @@ import { Hero } from './components/sections/Hero/Hero';
 import { AboutMe } from './components/sections/AboutMe/AboutMe';
 import { Technologies } from './components/sections/Technologies/Technologies';
 import { Projects } from './components/sections/Projects/Projects';
+import { Footer } from './components/Footer/Footer';
 import { Preloader } from './components/Preloader/Preloader';
 import { CurtainsProvider } from './components/Curtains/CurtainsContext';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [activeSection, setActiveSection] = useState(() => window.location.hash || '#inicio');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setActiveSection(window.location.hash || '#inicio');
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   // Bloquear el scroll mientras carga el preloader
   useEffect(() => {
@@ -49,10 +59,11 @@ function App() {
               #contact      → Footer (formulario de contacto)
             ════════════════════════════════════════════════════════════
           */}
-          <Hero />
-          <AboutMe />
-          <Technologies />
-          <Projects />
+          {activeSection === '#inicio' && <Hero />}
+          {activeSection === '#about' && <AboutMe />}
+          {activeSection === '#technologies' && <Technologies />}
+          {activeSection === '#projects' && <Projects />}
+          {activeSection === '#contact' && <Footer />}
         </Layout>
       </motion.div>
     </CurtainsProvider>
