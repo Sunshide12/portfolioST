@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Layout } from './components/Layout/Layout';
-import { Hero } from './components/sections/Hero/Hero';
-import { AboutMe } from './components/sections/AboutMe/AboutMe';
-import { Technologies } from './components/sections/Technologies/Technologies';
-import { Projects } from './components/sections/Projects/Projects';
+import { Hero } from './Sections/Hero/Hero';
+import { AboutMe } from './Sections/AboutMe/AboutMe';
+import { Technologies } from './Sections/Technologies/Technologies';
+import { Projects } from './Sections/Projects/Projects';
 import { Footer } from './components/Footer/Footer';
 import { Preloader } from './components/Preloader/Preloader';
 import { CurtainsProvider } from './components/Curtains/CurtainsContext';
