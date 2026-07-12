@@ -7,8 +7,10 @@ import './ThemeToggle.css';
  * Obtiene el estado y la función de toggle desde ThemeContext.
  */
 export function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const isDark = theme === 'dark';
+
+  const toggleTheme = () => {};
 
   return (
     <button
