@@ -1,6 +1,6 @@
 import { useState, useEffect, Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TranslatedText } from '../../TranslatedText/TranslatedText';
+import { TranslatedText } from '../../components/TranslatedText/TranslatedText';
 import './AboutMe.css';
 
 /**
@@ -10,7 +10,7 @@ import './AboutMe.css';
  * Añade tu foto, bio, experiencia, etc. dentro de .about__content
  * ─────────────────────────────────────────────────────────────────────────
  */
-const Lanyard = lazy(() => import('../../Lanyard/Lanyard'));
+const Lanyard = lazy(() => import('../../components/Lanyard/Lanyard'));
 
 export function AboutMe() {
   const { t } = useTranslation();

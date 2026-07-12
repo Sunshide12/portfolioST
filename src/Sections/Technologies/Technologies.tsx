@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { TranslatedText } from '../../TranslatedText/TranslatedText';
+import { TranslatedText } from '../../components/TranslatedText/TranslatedText';
 import './Technologies.css';
 
 /**
@@ -9,20 +9,35 @@ import './Technologies.css';
  * Añade iconos, badges o tarjetas dentro de .tech__grid
  * ─────────────────────────────────────────────────────────────────────────
  */
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiHtml5, SiCss, SiVite, SiGit, SiFigma } from 'react-icons/si';
-import LogoLoop from '../../LogoLoop/LogoLoop';
+import { 
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiAstro, 
+  SiSupabase, SiCloudflare, SiLaravel, SiPhp, SiDeno, 
+  SiNodedotjs, SiPostgresql, SiMysql, SiGit, SiPostman, 
+  SiGraphql, SiVercel, SiRender, SiPython, SiLinux 
+} from 'react-icons/si';
+import LogoLoop from '../../components/LogoLoop/LogoLoop';
 
 const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
   { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
   { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiAstro />, title: "Astro", href: "https://astro.build" },
+  { node: <SiSupabase />, title: "Supabase", href: "https://supabase.com" },
+  { node: <SiCloudflare />, title: "Cloudflare", href: "https://www.cloudflare.com" },
+  { node: <SiLaravel />, title: "Laravel", href: "https://laravel.com" },
+  { node: <SiPhp />, title: "PHP", href: "https://www.php.net" },
+  { node: <SiDeno />, title: "Deno", href: "https://deno.com" },
   { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
-  { node: <SiHtml5 />, title: "HTML5", href: "https://developer.mozilla.org/en-US/docs/Glossary/HTML5" },
-  { node: <SiCss />, title: "CSS3", href: "https://developer.mozilla.org/en-US/docs/Web/CSS" },
-  { node: <SiVite />, title: "Vite", href: "https://vitejs.dev" },
+  { node: <SiPostgresql />, title: "PostgreSQL", href: "https://www.postgresql.org" },
+  { node: <SiMysql />, title: "MySQL", href: "https://www.mysql.com" },
   { node: <SiGit />, title: "Git", href: "https://git-scm.com" },
-  { node: <SiFigma />, title: "Figma", href: "https://www.figma.com" },
+  { node: <SiPostman />, title: "Postman", href: "https://www.postman.com" },
+  { node: <SiGraphql />, title: "GraphQL", href: "https://graphql.org" },
+  { node: <SiVercel />, title: "Vercel", href: "https://vercel.com" },
+  { node: <SiRender />, title: "Render", href: "https://render.com" },
+  { node: <SiPython />, title: "Python", href: "https://www.python.org" },
+  { node: <SiLinux />, title: "Linux", href: "https://www.kernel.org" },
 ];
 
 export function Technologies() {
