@@ -1,12 +1,11 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, type ReactNode } from 'react';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
-export type Theme = 'light' | 'dark';
+export type Theme = 'dark';
 
 interface ThemeContextValue {
   theme: Theme;
-  toggleTheme: () => void;
-  isDark: boolean;
+  isDark: true;
 }
 
 // ─── Context ───────────────────────────────────────────────────────────────
@@ -14,24 +13,14 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 
 // ─── Provider ──────────────────────────────────────────────────────────────
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    // Priority: localStorage → system preference → light
-    const saved = localStorage.getItem('sunshide-theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark';
-    return 'light';
-  });
-
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('sunshide-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () =>
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+    // Always force dark — remove any stale stored preference.
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.removeItem('sunshide-theme');
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, isDark: theme === 'dark' }}>
+    <ThemeContext.Provider value={{ theme: 'dark', isDark: true }}>
       {children}
     </ThemeContext.Provider>
   );

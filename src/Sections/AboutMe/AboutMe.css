@@ -1,44 +1,10 @@
 /* AboutMe section */
 
-.about {
-  /* Override min-height to allow scrolling */
-  min-height: 250vh !important;
-  display: block !important; /* Remove flex centering from .section base */
-  padding: 0 !important;
-}
-
-.about__scroll-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.about__sticky-content {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about__overlay {
-  position: absolute;
-  top: calc(var(--topbar-height) + var(--space-20));
-  left: 0;
-  width: 100%;
-  pointer-events: none; /* Let clicks pass through to Lanyard */
-  z-index: 10;
-}
-
 .about__content {
   /* Grid para foto + bio cuando lo rellenes */
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-10);
-  pointer-events: auto; /* Re-enable pointer events for text/buttons */
 }
 
 @media (min-width: 768px) {
@@ -47,4 +13,3 @@
     align-items: start;
   }
 }
-

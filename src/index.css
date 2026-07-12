@@ -24,54 +24,9 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. DESIGN TOKENS — PALETA BLANCO Y NEGRO
+   2. DESIGN TOKENS — DARK THEME (único tema)
    -------------------------------------------------------------------------- */
 :root {
-  /* Backgrounds */
-  --color-bg: #F7F6F3;
-  /* blanco cálido — no agresivo para la vista */
-  --color-bg-alt: #EFEDE9;
-  /* secciones alternadas, ligeramente más oscuro */
-  --color-surface: #FFFFFF;
-  /* tarjetas, modales */
-  --color-surface-hover: #F0EEE9;
-  /* hover sobre superficies */
-
-  /* Texto */
-  --color-text: #181816;
-  /* negro suave — no puro #000 */
-  --color-text-secondary: #424240;
-  /* subtítulos, párrafos */
-  --color-text-muted: #7A7876;
-  /* placeholders, captions */
-  --color-text-inverse: #F7F6F3;
-  /* texto sobre fondo oscuro */
-
-  /* Bordes y divisores */
-  --color-border: #DDD9D1;
-  --color-border-strong: #B8B4AC;
-
-  /* Acento (solo en hover/focus, sin color extra) */
-  --color-accent: #181816;
-  /* negro intenso */
-  --color-accent-light: #3A3A38;
-
-  /* Glassmorphism (topbar al scroll) */
-  --color-glass-bg: rgba(247, 246, 243, 0.82);
-  --color-glass-border: rgba(221, 217, 209, 0.6);
-
-  /* Sombras */
-  --shadow-sm: 0 1px 3px rgba(24, 24, 22, 0.06);
-  --shadow-md: 0 4px 16px rgba(24, 24, 22, 0.08);
-  --shadow-lg: 0 12px 40px rgba(24, 24, 22, 0.12);
-  --shadow-topbar: 0 1px 0 rgba(24, 24, 22, 0.08);
-}
-
-/* --------------------------------------------------------------------------
-   DARK MODE TOKENS — misma paleta cálida, invertida
-   Se activa con data-theme="dark" en <html>, controlado por ThemeContext.
-   -------------------------------------------------------------------------- */
-:root[data-theme="dark"] {
   /* Backgrounds */
   --color-bg: #141413;
   --color-bg-alt: #1C1C1A;
@@ -92,7 +47,7 @@
   --color-accent: #F7F6F3;
   --color-accent-light: #E0DED9;
 
-  /* Glassmorphism */
+  /* Glassmorphism (topbar al scroll) */
   --color-glass-bg: rgba(20, 20, 19, 0.85);
   --color-glass-border: rgba(46, 46, 44, 0.6);
 
@@ -203,8 +158,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
-  /* Transición suave al cambiar tema light ↔ dark */
-  transition: background-color var(--transition-base), color var(--transition-base);
   overflow-x: clip;
 }
 
@@ -267,23 +220,7 @@ button {
   flex-direction: column;
 }
 
-/* --------------------------------------------------------------------------
-   TRANSICIÓN GLOBAL DE TEMA — sincroniza TODO con el body (250ms)
-   :where() tiene especificidad 0, nunca sobreescribe reglas propias.
-   -------------------------------------------------------------------------- */
-:where(*) {
-  transition:
-    background-color var(--transition-base),
-    border-color var(--transition-base),
-    color var(--transition-base);
-}
 
-/* Excepciones: elementos que tienen sus propias transiciones más rápidas
-   o que no deben heredar este delay (animaciones, preloader, etc.)     */
-:where(.lang-toggle, .theme-toggle, .topbar__nav-link, .social-link,
-  .form-input, .form-textarea, .form-submit, .topbar__hamburger) {
-  transition: revert;
-}
 
 
 /* --------------------------------------------------------------------------
