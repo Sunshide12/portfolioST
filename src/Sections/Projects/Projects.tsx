@@ -63,10 +63,10 @@ export function Projects() {
         <div className="projects__carousel-wrapper">
           <CoverflowCarousel
             images={PROJECTS}
-            activeWidth={560}
-            activeHeight={380}
-            restWidth={180}
-            restHeight={260}
+            activeWidth={480}
+            activeHeight={320}
+            restWidth={140}
+            restHeight={220}
             gap={24}
             radius={2}
             showArrows={true}

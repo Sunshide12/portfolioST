@@ -8,20 +8,55 @@
   },
   "hero": {
     "title": "Welcome to my Portfolio",
-    "subtitle": "Explore my projects and discover what I can build. Transforming ideas into reality through code and modern design.",
-    "cta": "View my projects"
+    "subtitle": "Get to know me a bit, here you will find my projects, my way of thinking and much more.",
+    "cta": "View my projects",
+    "quotes": [
+      {
+        "text": "\"We are not living in an era of changes, we are living a change of era.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"Idea. Simulation. Execution.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"Perhaps we have to separate, for the first time in history, what we do from what we are.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"Some people don't like change, but you need to embrace change if the alternative is disaster.\"",
+        "author": "Elon Musk"
+      },
+      {
+        "text": "\"Talk is cheap. Show me the code.\"",
+        "author": "Linus Torvalds"
+      },
+      {
+        "text": "\"The advance of technology is based on making it fit in so that you don't really even notice it.\"",
+        "author": "Bill Gates"
+      },
+      {
+        "text": "\"Imagination is more important than knowledge. Knowledge is limited.\"",
+        "author": "Albert Einstein"
+      },
+      {
+        "text": "\"The biggest risk is not taking any risk. In a world that is changing really quickly, the only strategy that is guaranteed to fail is not taking risks.\"",
+        "author": "Mark Zuckerberg"
+      }
+    ]
   },
   "about": {
     "title": "About Me",
-    "subtitle": "A little about who I am"
+    "subtitle": "Steban Martínez: Full Stack Software Developer & Technology Enthusiast",
+    "description": "I am a person who likes to know the \"why of things\", I am not satisfied with just knowing the basics."
   },
   "technologies": {
     "title": "Technologies",
-    "subtitle": "Tools and languages I work with"
+    "subtitle": "Tools and languages I am familiar with"
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "What I've built"
+    "subtitle": "This is a glimpse of my most ambitious projects so far."
   },
   "contact": {
     "title": "Contact Me",

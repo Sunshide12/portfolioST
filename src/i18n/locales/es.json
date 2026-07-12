@@ -8,20 +8,55 @@
   },
   "hero": {
     "title": "Bienvenidos a mi Portafolio",
-    "subtitle": "Explora mis proyectos y descubre lo que puedo construir. Transformando ideas en realidad a través del código y diseño moderno.",
-    "cta": "Ver mis proyectos"
+    "subtitle": "Conóceme un poco, aquí encontrarás mis proyectos, mi manera de pensar y mucho más.",
+    "cta": "Ver mis proyectos",
+    "quotes": [
+      {
+        "text": "\"No estamos viviendo una época de cambios, estamos viviendo un cambio de época.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"Idea. Simulación. Ejecución.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"Quizás tenemos que separar, por primera vez en la historia, lo que hacemos de lo que somos.\"",
+        "author": "Jose Pino"
+      },
+      {
+        "text": "\"A algunas personas no les gustan los cambios, pero necesitas abrazarlos si la alternativa es el desastre.\"",
+        "author": "Elon Musk"
+      },
+      {
+        "text": "\"Hablar es barato. Muéstrame el código.\"",
+        "author": "Linus Torvalds"
+      },
+      {
+        "text": "\"El avance de la tecnología se basa en hacer que encaje de tal forma que ni siquiera lo notes.\"",
+        "author": "Bill Gates"
+      },
+      {
+        "text": "\"La imaginación es más importante que el conocimiento. El conocimiento es limitado.\"",
+        "author": "Albert Einstein"
+      },
+      {
+        "text": "\"El mayor riesgo es no correr ningún riesgo. En un mundo que cambia muy rápido, la única estrategia que garantiza fallar es no correr riesgos.\"",
+        "author": "Mark Zuckerberg"
+      }
+    ]
   },
   "about": {
     "title": "Más de mí",
-    "subtitle": "Conoce un poco sobre mí"
+    "subtitle": "Steban Martínez: Desarrollador de Software Full Stack & Entusiasta de la Tecnología",
+    "description": "Soy una persona que le gusta saber el \"porqué de las cosas\", No me conformo con saber lo básico."
   },
   "technologies": {
     "title": "Tecnologías",
-    "subtitle": "Herramientas y lenguajes con los que trabajo"
+    "subtitle": "Herramientas y lenguajes con los que estoy familiarizado"
   },
   "projects": {
     "title": "Proyectos",
-    "subtitle": "Lo que he construido"
+    "subtitle": "Esto es un poco de mis proyectos más ambiciosos hasta ahora."
   },
   "contact": {
     "title": "Contáctame",

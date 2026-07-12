@@ -24,9 +24,9 @@ export function AboutMe() {
 
         {/* ── TU CONTENIDO AQUÍ ── */}
         <div className="about__content">
-          {/* Ejemplo de estructura para cuando lo rellenes:
-              - Columna izquierda: foto / avatar
-              - Columna derecha: párrafos de bio, intereses, etc. */}
+          <p className="about__description" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', lineHeight: '1.6', color: 'var(--text-secondary)' }}>
+            <TranslatedText i18nKey="about.description" animateOn="view" speed={15} />
+          </p>
         </div>
       </div>
     </section>
